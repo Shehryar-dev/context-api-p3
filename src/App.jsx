@@ -14,11 +14,18 @@ function App() {
   };
 
   const updateTodo = (id, updatedTodo) => {
-    setTodos((prevTodos) =>
+    setTodos((prevTodos) => {
       prevTodos.map((todo) =>
         // todo.id === id ? { ...todo, ...updatedTodo } : todo
-        todo.id === id ? updateTodo : todo)
-    );
+        todo.id === id ? updateTodo : todo);
+
+       prevTodos.map((eachValue)=>{
+          if(eachValue.id === id){
+            return updateTodo;
+          }
+       })  
+    })
+        
   };
   return (
     <TodoProvider value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}>
