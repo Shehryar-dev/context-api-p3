@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
 import TodoItem from './ui/TodoItem'
 import TodoForm from './ui/TodoForm'
 import { TodoProvider } from './context/TodoContext'
@@ -27,6 +24,15 @@ function App() {
     })
         
   };
+
+  const deleteTodo = (id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
+
+
+
+
+
   return (
     <TodoProvider value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}>
       <div className="bg-[#172842] min-h-screen py-8">
